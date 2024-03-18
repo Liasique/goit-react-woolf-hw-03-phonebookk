@@ -1,0 +1,77 @@
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media screen and (max-width: 375px) {
+  .form {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field_icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b879f;
+}
+
+.input {
+  height: 48px;
+  padding: 10px 12px 10px 40px;
+  border: 2px solid #ced4da;
+  border-radius: 4px;
+  background-color: #ffffff;
+  font-size: 14px;
+  color: #495057;
+}
+
+.input::placeholder {
+  color: #adb5bd;
+}
+
+.input:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.label {
+  font-size: 14px;
+  color: #6c757d;
+  transition: all 0.3s ease-in-out;
+}
+
+.add_button {
+  grid-column: span 2;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  background-color: #3685d9;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add_button:hover {
+  background-color: #0056b3;
+}
+
+@media screen and (max-width: 375px) {
+  .add_button {
+    grid-column: span 1;
+  }
+}
