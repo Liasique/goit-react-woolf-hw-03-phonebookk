@@ -22,7 +22,6 @@ class ContactForm extends Component {
     const contacts = JSON.parse(localStorage.getItem('contacts')) || [];
     const newContact = { ...this.state, id: Date.now() };
 
-    // Avoid duplicate names
     if (contacts.some(contact => contact.name === newContact.name)) {
       alert(`${newContact.name} is already in contacts.`);
       return;
