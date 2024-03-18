@@ -10,17 +10,28 @@ class App extends Component {
     contacts: [],
     filter: '',
   };
-
+  
   componentDidMount() {
+  try {
     const savedContacts = localStorage.getItem('contacts');
-    if (savedContacts) this.setState({ contacts: JSON.parse(savedContacts) });
+    if (savedContacts) {
+      this.setState({ contacts: JSON.parse(savedContacts) });
+    }
+  } catch (error) {
+    console.error('Failed to load contacts from local storage:', error);
   }
+}
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.contacts !== prevState.contacts) {
+componentDidUpdate(prevProps, prevState) {
+  if (this.state.contacts !== prevState.contacts) {
+    try {
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+      console.log('Contacts saved to local storage');
+    } catch (error) {
+      console.error('Failed to save contacts to local storage:', error);
     }
   }
+}
 
   handleAddContact = data => {
     const normalizedName = data.name.toLowerCase();
